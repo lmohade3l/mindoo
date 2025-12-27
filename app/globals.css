@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'IRANYekan';
+  src: url('../assets/fonts/IRANYekanXVF.woff2') format('woff2');
+  src: url('../assets/fonts/IRANYekanXVF.woff') format('woff');
+  /* font-weight: 400; */
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -22,5 +29,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'IRANYekan', Arial, Helvetica, sans-serif;
 }
