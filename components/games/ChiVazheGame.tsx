@@ -3,6 +3,7 @@ import LeftChevron from "@/assets/icons/left-chevron.svg"
 import { useRouter } from "next/navigation";
 import InputBox from "../ui/InputBox";
 import Word from "../ui/Word";
+import Keyboard from "../ui/Keyboard";
 
 export default function ChiVazheGame() {
     const router = useRouter();
@@ -29,7 +30,9 @@ export default function ChiVazheGame() {
                 </div>
 
                 {/* keyboard */}
-                <div></div>
+                <div>
+                    <Keyboard />
+                </div>
             </div>
         </div>
     );
