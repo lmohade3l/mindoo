@@ -8,8 +8,9 @@ import ChiVazhe from "@/assets/icons/chi-vazhe.svg"
 import { useRouter } from "next/navigation";
 
 
-export default function GamePreview({ game }: { game: GameTypes }) {
+export default function GamePreview({ game, setPlay }: { game: GameTypes, setPlay: any }) {
     const router = useRouter();
+
     return (
         <div
             style={{
@@ -29,7 +30,7 @@ export default function GamePreview({ game }: { game: GameTypes }) {
                 }} className="text-[16px] mb-[24px] text-center">
                     {games[game as GameTypes]?.description}
                 </p>
-                <button className="bg-[#121212] text-[white] cursor-pointer h-[48px] w-[155px] rounded-[16px] font-[600] hover:bg-[#e6c500] transition">
+                <button onClick={() => setPlay((prev: boolean) => !prev)} className="bg-[#121212] text-[white] cursor-pointer h-[48px] w-[155px] rounded-[16px] font-[600] hover:bg-[#e6c500] transition">
                     شروع بازی
                 </button>
 
@@ -40,7 +41,6 @@ export default function GamePreview({ game }: { game: GameTypes }) {
                     className="text-[12px] font-[500] mt-5"
                 >
                     {new Date().toLocaleDateString('fa-IR', {
-                        // weekday: 'long',
                         day: 'numeric',
                         month: 'long',
                         year: 'numeric'

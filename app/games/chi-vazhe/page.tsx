@@ -11,7 +11,7 @@ export default function ChiVazhe() {
             {play ? (
                 <ChiVazheGame />
             ) : (
-                <GamePreview game="chiVazhe"/>
+                <GamePreview setPlay={setPlay} game="chiVazhe"/>
             )}
         </>
     );
