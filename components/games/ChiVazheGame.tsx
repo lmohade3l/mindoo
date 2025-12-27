@@ -1,6 +1,8 @@
 import Image from "next/image";
 import LeftChevron from "@/assets/icons/left-chevron.svg"
 import { useRouter } from "next/navigation";
+import InputBox from "../ui/InputBox";
+import Word from "../ui/Word";
 
 export default function ChiVazheGame() {
     const router = useRouter();
@@ -19,8 +21,10 @@ export default function ChiVazheGame() {
                     <div className="h-[48px]"></div>
 
                     {/* grid */}
-                    <div className="grid grid-cols-5 grid-rows-5 gap-[6px]">
-
+                    <div className="flex flex-col gap-2">
+                        {[...Array(6)].map((_, index) => (
+                            <Word />
+                        ))}
                     </div>
                 </div>
 
