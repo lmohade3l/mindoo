@@ -1,6 +1,6 @@
 'use client';
 
-import { APP_NAME } from "@/data/constants";
+import { APP_NAME } from "@/data/constants/constants";
 import { useEffect, useState } from "react";
 
 interface PageLoadingProps {

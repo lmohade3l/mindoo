@@ -1,4 +1,4 @@
-import { APP_NAME } from "@/data/constants";
+import { APP_NAME } from "@/data/constants/constants";
 import Image from "next/image";
 import MindooLogo from "@/assets/icons/mindoo-logo.png"
 

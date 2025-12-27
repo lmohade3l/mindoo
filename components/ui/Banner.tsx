@@ -1,11 +1,17 @@
-import { games } from "@/data/games";
-import Image from "next/image";
+'use client';
 
-export default function Banner({ game }: { game: 'chiVazhe' }) {
+import { games } from "@/data/constants/games";
+import { GameTypes } from "@/data/types/games";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+export default function Banner({ game }: { game: GameTypes }) {
+    const router = useRouter();
     return (
-        <div className="rounded-[16px] p-[16px] flex flex-col gap-4 cursor-pointer" style={{
-            backgroundColor: games[game as keyof typeof games]?.bgColor
-        }}>
+        <div onClick={() => router.push(`${games[game as keyof typeof games]?.link}`)}
+            className="rounded-[16px] p-[16px] flex flex-col gap-4 cursor-pointer" style={{
+                backgroundColor: games[game as keyof typeof games]?.bgColor
+            }}>
             <div className="flex justify-between items-center">
                 <div className="flex flex-col gap-2">
                     <p

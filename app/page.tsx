@@ -1,6 +1,6 @@
-import Header from "@/components/Header";
-import HomeContent from "@/components/HomeContent";
-import { PageLoading } from "@/components/PageLoading";
+import Header from "@/components/layout/Header";
+import HomeContent from "@/components/layout/HomeContent";
+import { PageLoading } from "@/components/ui/PageLoading";
 import Image from "next/image";
 
 export default function Home() {
