@@ -1,5 +1,6 @@
 'use client';
 
+import { APP_NAME } from "@/data/constants";
 import { useEffect, useState } from "react";
 
 interface PageLoadingProps {
@@ -29,7 +30,7 @@ export const PageLoading = ({
                 <div style={{ backgroundColor: backgroundColor ?? 'red' }} className={`min-h-screen flex items-center justify-center`}>
                     <div className="flex flex-col gap-3">
                         <div>
-                            <p className="text-[black] text-[32px] font-[500]">مایندو</p>
+                            <p className="text-[black] text-[32px] font-[500]">{APP_NAME}</p>
                         </div>
                     </div>
                 </div>
