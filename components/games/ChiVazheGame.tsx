@@ -30,9 +30,9 @@ export default function ChiVazheGame() {
                 </div>
 
                 {/* keyboard */}
-                <div>
+                {/* <div> */}
                     <Keyboard />
-                </div>
+                {/* </div> */}
             </div>
         </div>
     );
