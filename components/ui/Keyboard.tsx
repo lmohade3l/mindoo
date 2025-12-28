@@ -7,7 +7,9 @@ export default function Keyboard() {
             {/* first row */}
             <div className="grid grid-cols-12 justify-center gap-1 px-2">
                 {["ض", "ص", "ث", "ق", "ف", "غ", "ع", "ه", "خ", "ح", "ج", "چ"].reverse().map((key) => (
-                    <div key={key} className=" h-[58px] bg-[#D3D6DA] rounded-[8px] flex items-center justify-center text-[20px] font-[600] text-[black] cursor-pointer">
+                    <div style={{
+                        height: window?.innerWidth < 400 ? '48px' : '58px'
+                    }} key={key} className=" h-[58px] bg-[#D3D6DA] rounded-[8px] flex items-center justify-center text-[20px] font-[600] text-[black] cursor-pointer">
                         {key}
                     </div>
                 ))}
@@ -16,7 +18,9 @@ export default function Keyboard() {
             {/* second row */}
             <div className="grid grid-cols-11 justify-center gap-1 px-4">
                 {["ش", "س", "ی", "ب", "ل", "ا", "ت", "ن", "م", "ک", "گ"].reverse().map((key) => (
-                    <div key={key} className=" h-[58px] bg-[#D3D6DA] rounded-[8px] flex items-center justify-center text-[20px] font-[600] text-[black] cursor-pointer">
+                    <div style={{
+                        height: window?.innerWidth < 400 ? '48px' : '58px'
+                    }} key={key} className=" h-[58px] bg-[#D3D6DA] rounded-[8px] flex items-center justify-center text-[20px] font-[600] text-[black] cursor-pointer">
                         {key}
                     </div>
                 ))}
@@ -24,15 +28,23 @@ export default function Keyboard() {
 
             {/* third row */}
             <div className="grid grid-cols-11 justify-center gap-1 px-2">
-                <div className="flex items-center justify-center bg-[#D3D6DA] rounded-[8px] h-[58px] cursor-pointer">
+                <div style={{
+                    height: window?.innerWidth < 400 ? '48px' : '58px'
+                }} className="flex items-center justify-center bg-[#D3D6DA] rounded-[8px] h-[58px] cursor-pointer">
                     <Image src={BackSpace} alt="backspace" className="w-[20px] cursor-pointer" />
                 </div>
                 {["ظ", "ط", "ز", "ر", "ذ", "د", "پ", "و", "ی"].reverse().map((key) => (
-                    <div key={key} className=" h-[58px] bg-[#D3D6DA] rounded-[8px] flex items-center justify-center text-[20px] font-[600] text-[black] cursor-pointer">
+                    <div style={{
+                        height: window?.innerWidth < 400 ? '48px' : '58px'
+                    }} key={key} className=" h-[58px] bg-[#D3D6DA] rounded-[8px] flex items-center justify-center text-[20px] font-[600] text-[black] cursor-pointer">
                         {key}
                     </div>
                 ))}
-                <div className="flex items-center justify-center bg-[#D3D6DA] rounded-[8px] h-[58px] cursor-pointer font-[600]">ثبت</div>
+                <div
+                    style={{
+                        height: window?.innerWidth < 400 ? '48px' : '58px'
+                    }}
+                    className="flex items-center justify-center bg-[#D3D6DA] rounded-[8px] h-[58px] cursor-pointer font-[600]">ثبت</div>
             </div>
 
         </div>

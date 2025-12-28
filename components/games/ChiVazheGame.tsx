@@ -19,7 +19,9 @@ export default function ChiVazheGame() {
             <div className="w-full h-[calc(100vh-48px)] flex flex-col items-center justify-between p-[16px]">
                 <div className="w-full flex flex-col items-center gap-[10px]">
                     {/* message */}
-                    <div className="h-[48px]"></div>
+                    <div style={{
+                        height: window?.innerWidth < 400 ? '30px' : '48px'
+                    }} className="h-[48px]"></div>
 
                     {/* grid */}
                     <div className="flex flex-col gap-2">
@@ -31,7 +33,7 @@ export default function ChiVazheGame() {
 
                 {/* keyboard */}
                 {/* <div> */}
-                    <Keyboard />
+                <Keyboard />
                 {/* </div> */}
             </div>
         </div>
