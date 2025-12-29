@@ -19,9 +19,26 @@ export default function ChiVazheGame() {
         return initialGuesses;
     });
 
+    const TARGET = 'کتابت'
+
     const handleKeyPress = (key: string) => {
         // submit
-        if (key === 'enter') { }
+        if (key === 'enter') { 
+            let updatesGuesses = { ...guesses };
+            for (let i = 0; i < 5; i++) {
+                let enteredLetter = updatesGuesses[guessNumber][i].value;
+                if (enteredLetter === TARGET[i]) {
+                    updatesGuesses[guessNumber][i].status = 'correct';
+                } else if (TARGET.includes(enteredLetter)) {
+                    updatesGuesses[guessNumber][i].status = 'misplaced';
+                } else {
+                    updatesGuesses[guessNumber][i].status = 'incorrect';
+                }
+            }
+            setGuesses(updatesGuesses);
+            setGuessNumber(guessNumber + 1);
+            return;
+        }
 
         // backspace
         else if (key === 'backspace') {
@@ -30,6 +47,7 @@ export default function ChiVazheGame() {
             if (emptyIndex === -1) emptyIndex = 5;
             newGuesses[guessNumber][emptyIndex - 1] = { status: 'empty', value: '' };
             setGuesses(newGuesses);
+            return;
         }
 
         // add letter
@@ -38,6 +56,7 @@ export default function ChiVazheGame() {
             let emptyIndex = newGuesses[guessNumber].findIndex(letter => letter.status === 'empty');
             newGuesses[guessNumber][emptyIndex] = { status: 'filled', value: key };
             setGuesses(newGuesses);
+            return;
         }
     }
 
