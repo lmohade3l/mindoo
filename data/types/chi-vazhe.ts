@@ -1,0 +1,1 @@
+export type StatusTypes = 'empty' | 'filled' | 'correct' | 'misplaced' | 'incorrect';

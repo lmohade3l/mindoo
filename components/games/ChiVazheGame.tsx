@@ -1,12 +1,35 @@
+"use client";
+
 import Image from "next/image";
 import LeftChevron from "@/assets/icons/left-chevron.svg"
 import { useRouter } from "next/navigation";
-import InputBox from "../ui/InputBox";
 import Word from "../ui/Word";
 import Keyboard from "../ui/Keyboard";
+import { useState } from "react";
+import { StatusTypes } from "@/data/types/chi-vazhe";
 
 export default function ChiVazheGame() {
     const router = useRouter();
+    const [guessNumber, setGuessNumber] = useState(0);
+    const [guesses, setGuesses] = useState(() => {
+        const initialGuesses : Record<number, { status: StatusTypes; value: string }[]> = {};
+        for (let i = 0; i < 6; i++) {
+            initialGuesses[i] = Array(5).fill({ status: 'empty', value: '' });
+        }
+        return initialGuesses;
+    });
+
+    const handleKeyPress = (key : string) => {
+        // submit
+
+        // backspace
+
+        // add letter
+        let newGuesses = { ...guesses };
+        let emptyIndex = newGuesses[guessNumber].findIndex(letter => letter.status === 'empty');
+        newGuesses[guessNumber][emptyIndex] = { status: 'filled', value: key };
+        setGuesses(newGuesses);
+    }
 
     return (
         <div className="w-full min-h-screen flex flex-col bg-[white] text-[black]">
@@ -26,15 +49,13 @@ export default function ChiVazheGame() {
                     {/* grid */}
                     <div className="flex flex-col gap-2">
                         {[...Array(6)].map((_, index) => (
-                            <Word />
+                            <Word key={index} value={guesses[index]} />
                         ))}
                     </div>
                 </div>
 
                 {/* keyboard */}
-                {/* <div> */}
-                <Keyboard />
-                {/* </div> */}
+                <Keyboard onKeyPress={handleKeyPress} />
             </div>
         </div>
     );
