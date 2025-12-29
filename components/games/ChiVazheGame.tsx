@@ -12,23 +12,33 @@ export default function ChiVazheGame() {
     const router = useRouter();
     const [guessNumber, setGuessNumber] = useState(0);
     const [guesses, setGuesses] = useState(() => {
-        const initialGuesses : Record<number, { status: StatusTypes; value: string }[]> = {};
+        const initialGuesses: Record<number, { status: StatusTypes; value: string }[]> = {};
         for (let i = 0; i < 6; i++) {
             initialGuesses[i] = Array(5).fill({ status: 'empty', value: '' });
         }
         return initialGuesses;
     });
 
-    const handleKeyPress = (key : string) => {
+    const handleKeyPress = (key: string) => {
         // submit
+        if (key === 'enter') { }
 
         // backspace
+        else if (key === 'backspace') {
+            let newGuesses = { ...guesses };
+            let emptyIndex = newGuesses[guessNumber].findIndex(letter => letter.status === 'empty');
+            if (emptyIndex === -1) emptyIndex = 5;
+            newGuesses[guessNumber][emptyIndex - 1] = { status: 'empty', value: '' };
+            setGuesses(newGuesses);
+        }
 
         // add letter
-        let newGuesses = { ...guesses };
-        let emptyIndex = newGuesses[guessNumber].findIndex(letter => letter.status === 'empty');
-        newGuesses[guessNumber][emptyIndex] = { status: 'filled', value: key };
-        setGuesses(newGuesses);
+        else {
+            let newGuesses = { ...guesses };
+            let emptyIndex = newGuesses[guessNumber].findIndex(letter => letter.status === 'empty');
+            newGuesses[guessNumber][emptyIndex] = { status: 'filled', value: key };
+            setGuesses(newGuesses);
+        }
     }
 
     return (
